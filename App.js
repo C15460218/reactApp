@@ -23,7 +23,7 @@ const styles = {
   ctaButton: {
     backgroundColor: 'dodgerblue ',
     color: 'white',
-    borderRadius: 50
+    borderRadius: 100
   }
 }
 
