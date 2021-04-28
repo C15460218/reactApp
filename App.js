@@ -7,106 +7,40 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { View, Text, Image, Button, Alert } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const styles = {
+  mainTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'red'
+  },
+  logoImage: {
+    width:  240,
+    height: 240,
+    resizeMode: 'cover'
+  },
+  ctaButton: {
+    backgroundColor: 'dodgerblue ',
+    color: 'white',
+    borderRadius: 50
+  }
+}
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+const App = () => {
+  return(
+    <View style = {{flex: 1}}>
+        <View style = {{flexGrow: 1,alignItems: 'center', justifyContent: 'center'}}>
+        <Text style={styles.mainTitle}>Instituto Tecnológico de Colima</Text>
+        <Image style={styles.logoImage} source= {require('./image/logo-itcolima.png')}/>
+        <Text>Ingeniería Informática</Text>
+        <Text style = {{color: 'darkcyan'}}>C15460218</Text>
+        <Text style = {{color: 'darkcyan'}}>Adrian Manuel Robles Jiménez</Text>
+        <Text>MARZO - JUNIO 2021</Text>
+      </View>
+      <Button style={styles.ctaButton} title="Entrar" onPress={()=>Alert.alert("ESP: Aplicacines Multiplataforma")}/>
     </View>
   );
 };
-
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
